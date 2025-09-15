@@ -1,5 +1,19 @@
 function findProductPrice(products, name) {
   // Your code here
+  const target = name.toLowerCase();
+  let left = 0, right = products.length -1;
+  while(left <= right) {
+    const mid = Math.floor((left + right)/2);
+    const midName = products[mid].name.toLowerCase();
+    if(midName === target) {
+      return products[mid].price;
+    } else if(midName < target) {
+      left = mid + 1;
+    } else {
+      right = mid - 1;
+    } 
+}
+  return -1;
 }
 
 // Test case
